@@ -11,8 +11,14 @@
 
 #pragma once
 #include <stdint.h>
+#include <stdbool.h>
 
 #define F_ADC ((F_CPU) / 12288U)
+
+/** Configure which ADC channels get connected to a pin
+ *  @param pins each bit corresponds to an ADC channel. Upper nybble ignored.
+ */
+inline void ADC_AttachPins(uint8_t pins);
 
 inline void ADC_Set(bool on);
 

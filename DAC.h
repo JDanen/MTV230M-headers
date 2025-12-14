@@ -12,6 +12,11 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+/** Configure which DAC channels get connected to a pin
+ *  @param pins each bit corresponds to an DAC channel. Upper nybble ignored.
+ */
+inline void DAC_AttachPins(uint8_t pins);
+
 /** Set the duty cycle of a DAC channel.
  *  @param channel which channel to set (0-3)
  *  @param value duty cycle value

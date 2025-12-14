@@ -10,6 +10,11 @@
 
 static uint8_t ADC_activeChannel = 0;
 
+inline void ADC_AttachPins(uint8_t pins) {
+    pins &= 0b00001111; //
+    PADMOD = (pins << AD0E);
+}
+
 inline void ADC_Set(bool on) {
     if (on) ADCCTRL = ENADC;
     else ADCCTRL = 0;     

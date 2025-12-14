@@ -7,6 +7,11 @@
 #include <MTV230M_XFR_bits.h>
 #include <MTV230M_XFR_masks.h>
 
+inline void DAC_AttachPins(uint8_t pins) {
+    pins &= 0b00001111; //
+    PADMOD = (pins << DA0E);
+}
+
 inline bool DAC_SetPulseWidth(uint8_t channel, uint8_t value) {
     switch (channel) {
         case 0: DA0 = value; break;
