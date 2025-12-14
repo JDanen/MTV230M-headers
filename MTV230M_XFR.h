@@ -1,10 +1,12 @@
-
+#pragma once
 #include <stdint.h>
 
 // Read/write permissions
 #define read
 #define write
 #define both
+
+#define sdcc 
 
 // Macro for defining XFRs
 #if defined(sdcc)

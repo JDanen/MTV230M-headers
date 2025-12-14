@@ -183,13 +183,11 @@
 
 #define ADC conversion result (1 << 2)
 
-#define WEN (1 << 7)
-#define WCLR (1 << 6)
-#define WDT2 (1 << 2)
-#define WDT1 (1 << 1)
-#define WDT0 (1 << 0)
-
-#define ISP slave address (1 << 2)
+#define WDEN (1 << 7)   /** Watchdog enable (WEN in datasheet) */
+#define WDCLR (1 << 6)  /** Watchdog clear (WCLR in datasheet) */
+#define WDT2 (1 << 2)   /** Watchdog timer value, bit 2 */
+#define WDT1 (1 << 1)   /** Watchdog timer value, bit 1 */
+#define WDT0 (1 << 0)   /** Watchdog timer value, bit 0 */
 
 #define A1 (1 << 7)
 #define A0 (1 << 6)
