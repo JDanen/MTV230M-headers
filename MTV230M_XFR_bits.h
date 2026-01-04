@@ -1,6 +1,6 @@
 #pragma once
 
-//          PADMOD
+//          PADMOD - alternate pin functions
 
 #define HIICE_OFS   (7) /** offset of HIICE bit */
 #define IICE_OFS    (6) /** offset of IICE bit */
@@ -9,9 +9,9 @@
 #define FclkE_OFS   (1) /** offset of FclkE bit */
 #define P26E_OFS    (0) /** offset of P26E bit */
 
-#define HIICE   (1 << HIICE_OFS)
-#define IICE    (1 << IICE_OFS)
-#define HVE     (1 << HVE_OFS)
+#define HIICE   (1 << HIICE_OFS)    /** Write 1 to enable HIIC on P3.0/1 (GPIO or UART otherwise) */
+#define IICE    (1 << IICE_OFS)     /** Write 1 to enable IIC on P6.0/1  (GPIO otherwise) */
+#define HVE     (1 << HVE_OFS)      
 #define HclpE   (1 << HclpE_OFS)
 #define FclkE   (1 << FclkE_OFS)
 #define P26E    (1 << P26E_OFS)
@@ -312,6 +312,7 @@
 #define WDT1    (1 << WDT1_OFS)   /** Watchdog timer value, bit 1 */
 #define WDT0    (1 << WDT0_OFS)   /** Watchdog timer value, bit 0 */
 
+/* Bits in the OSDRA register */
 #define A1_OFS (7)
 #define A0_OFS (6)
 #define R3_OFS (3)
@@ -362,13 +363,6 @@
 #define WINT    (1 << WINT_OFS)
 #define WSHD    (1 << WSHD_OFS)
 
-#define R_OFS (2)
-#define G_OFS (1)
-#define B_OFS (0)
-
-#define R (1 << R_OFS)
-#define G (1 << G_OFS)
-#define B (1 << B_OFS)
 
 #define OSDEN_OFS   (7)
 #define BSEN_OFS    (6)
