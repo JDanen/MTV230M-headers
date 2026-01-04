@@ -32,10 +32,8 @@ XFR_8(    DA2,	        0x0F22,	  both	);	/** 8-bit PWM value (0x80 after power-o
 XFR_8(    DA3,	        0x0F23,	  both	);	/** 8-bit PWM value (0x80 after power-on) */
 
 XFR_8(    HVSTUS,	    0x0F40,	  read	);	/** The status of polarity, present and static level for HSYNC and VSYNC */
-XFR_8(    HCNTH,	    0x0F41,	  read	);	/** High byte of hor. frequency counter */
-XFR_8(    HCNTL,	    0x0F42,	  read	);	/** Low byte of hor. frequency counter */
-XFR_8(    VCNTH,	    0x0F43,	  read	);	/** High byte of vert. frequency counter */
-XFR_8(    VCNTL,	    0x0F44,	  read	);	/** Low byte of vert. frequency counter */
+XFR_16(   HCNT, 	    0x0F42,	  read	);	/** Horizontal scan frequency (in counter steps) */
+XFR_16(   VCNT, 	    0x0F44,	  read	);	/** Vertical scan frequency (in counter steps)   */
 XFR_8(    HVCTR0,	    0x0F40,	  write	);	/** H/V sync processor control register 0 */
 XFR_8(    HVCTR3,	    0x0F43,	  write	);	/** HSYNC clamp pulse control register */
 XFR_8(    HVINTFLG,	    0x0F48,	  both	);	/** Interrupt flag register. Interrupts set the flag bits, writing 1 to a bit will clear it. */

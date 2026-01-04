@@ -7,9 +7,14 @@
 #include <MTV230M_XFR_bits.h>
 #include <MTV230M_XFR_masks.h>
 
+#include <ChipConfiguration.h>
+
 inline void DAC_AttachPins(uint8_t pins) {
     pins &= 0b00001111; //
-    PADMOD = (pins << DA0E);
+    uint32_t padmod = CC_GetPADMOD();
+    padmod &= ~PADMOD_DA_MASK;
+    padmod |= pins;
+    CC_WritePADMOD(padmod);
 }
 
 inline bool DAC_SetPulseWidth(uint8_t channel, uint8_t value) {
@@ -24,7 +29,7 @@ inline bool DAC_SetPulseWidth(uint8_t channel, uint8_t value) {
     return true;
 }
 
-inline uint8_t DAC_SetPulseWidth(uint8_t channel) {
+inline uint8_t DAC_GetPulseWidth(uint8_t channel) {
     switch (channel) {
         case 0: return DA0;
         case 1: return DA1;
@@ -32,4 +37,17 @@ inline uint8_t DAC_SetPulseWidth(uint8_t channel) {
         case 3: return DA3;
     }
     return 0;
+}
+
+inline void DAC_SetPWMFreq(enum DAC_PWMFreq freq) {
+    uint8_t option = CC_GetOPTION();
+    option &= ~PWMF;
+    option |= (freq << 7);
+    
+}
+
+inline void DAC_SetResolution(enum DAC_Resolution res) {
+    uint8_t option = CC_GetOPTION();
+    option &= ~DIV253;
+    option |= (res << 6);
 }

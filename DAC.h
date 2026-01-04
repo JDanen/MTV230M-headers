@@ -30,3 +30,15 @@ inline bool DAC_SetPulseWidth(uint8_t channel, uint8_t value);
  */
 inline uint8_t DAC_GetPulseWidth(uint8_t channel);
 
+enum DAC_PWMFreq { 
+    DAC_PWMFreq_47KHz = 0, 
+    DAC_PWMFreq_94KHz = 1 
+};
+inline void DAC_SetPWMFreq(enum DAC_PWMFreq freq);
+
+enum DAC_Resolution { 
+    DAC_Resolution_256 = 0,
+    DAC_Resolution_253 = 1
+};
+inline void DAC_SetResolution(enum DAC_Resolution res);
+
